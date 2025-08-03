@@ -1,0 +1,93 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+*.env
+*.venv
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+*.py,cover
+.cache
+nosetests.xml
+pytest_cache/
+test-results/
+
+# MyPy, Pylint, Bandit etc.
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+.bandit/
+
+# Environments
+.env
+.env.*
+.venv/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Docker
+*.pid
+*.pid.lock
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+MANIFEST
+
+# Editable installs
+*.egg
+
+# Wheel distribution
+*.whl
+
+# Database or data files
+*.db
+*.sqlite3
+*.pkl
+*.h5
+
+# Language server files
+.pyright/
+
+# Ignore PDFs or other files in the data/pdfs folder
+data/pdfs/*
+!data/pdfs/.gitkeep
+
+# Ignore database content
+data/vectorstore/*
+!data/vectorstore/.gitkeep

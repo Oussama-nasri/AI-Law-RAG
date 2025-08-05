@@ -49,7 +49,11 @@ class ChromaVectorStore:
         else:
             print(f"Chroma vector store directory does not exist: {self.persist_directory}")
 
-    def inspect_store(self, show_documents=True, show_metadata=True, show_ids=True, limit=5):
+
+    def as_retriever(self,search_kwargs):
+        return self.vector_store.as_retriever(search_kwargs=search_kwargs)
+
+    def show_store(self, show_documents=True, show_metadata=True, show_ids=True, limit=5):
         """Inspect and display the contents of the vector store."""
         if self.vector_store is None:
             print("❌ Vector store is not initialized.")
@@ -74,12 +78,4 @@ class ChromaVectorStore:
         if total == 0:
             print("⚠️ No documents found in the store.")
 
-    def return_database_content(self):
-        if self.vector_store is None:
-            return
-        return self.vector_store.get()
 
-    def return_database_collection(self,collection_name:str):
-        if self.vector_store is None:
-            return
-        data = self.vector_store.get()

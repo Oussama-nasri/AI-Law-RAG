@@ -9,6 +9,7 @@ class TestPDFPipeline(unittest.TestCase):
         collection_name = "laws_test"
         pipeline = PDFProcessingPipeline(pdf_path,db_path,collection_name)
         vector_store = pipeline.run()
+
         self.assertIsInstance(vector_store, ChromaVectorStore)
 
 if __name__ == "__main__":

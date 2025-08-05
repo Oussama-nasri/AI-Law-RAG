@@ -24,6 +24,6 @@ class PDFProcessingPipeline:
 
         vector_store.add_documents(chunks)
 
-        vector_store.inspect_store()
+        vector_store.show_store()
         return vector_store
 

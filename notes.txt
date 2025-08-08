@@ -1,0 +1,10 @@
+-function load vector store
+-add to db not based on collection name
+-pdf text cleaning code
+------------------------------------
+Database -> laws
+   Collection -> pdf file (pdf laws for each case)
+      Documents -> pdf pages seperated
+      Vector store -> embedding for each Collection(pdf file) + text + metadata +...
+      Vector index -> special data structure for stored embeddings to make queries faster
+

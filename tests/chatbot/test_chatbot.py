@@ -33,14 +33,14 @@ class TestChatbot(unittest.TestCase):
 
         llm_name = "llama3-70b-8192"
 
-        pdf_path = r"data\pdfs\laws.pdf"
+        pdf_path = r"data\pdfs\Analysis-of-decree-law-54-English.pdf"
         db_path = r"data\vectorstore"
-        collection_name = "laws_test"
+        collection_name = "decree_laws_test"
         pipeline = PDFProcessingPipeline(pdf_path, db_path, collection_name)
         vector_store = pipeline.run()
         chatbot = Chatbot(vector_store=vector_store,system_prompt=system_prompt,llm_name=llm_name)
 
-        query = "What does the law say about property inheritance?"
+        query = "Why does the Decree-law's criminalisation of certain offences raise concerns about legal certainty and arbitrary application?"
 
         response = asyncio.run(chatbot.get_response(query))
 

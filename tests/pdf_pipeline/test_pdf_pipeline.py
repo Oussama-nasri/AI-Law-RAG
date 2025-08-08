@@ -4,10 +4,9 @@ from utils.vectorstore.chroma_store import ChromaVectorStore
 
 class TestPDFPipeline(unittest.TestCase):
     def test_pipeline(self):
-        pdf_path = r"data\pdfs\laws.pdf"
-        db_path = r"data\vectorstore"
-        collection_name = "laws_test"
-        pipeline = PDFProcessingPipeline(pdf_path,db_path,collection_name)
+
+        pdf_path = r"data\pdfs\laws\Analysis-of-decree-law-54-English.pdf"
+        pipeline = PDFProcessingPipeline(pdf_path)
         vector_store = pipeline.run()
 
         self.assertIsInstance(vector_store, ChromaVectorStore)

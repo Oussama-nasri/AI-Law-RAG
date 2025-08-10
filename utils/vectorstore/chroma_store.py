@@ -1,6 +1,8 @@
 from langchain_community.vectorstores import Chroma
 import os
 import shutil
+from langchain_core.documents import  Document
+from collections.abc import  Iterable
 
 class ChromaVectorStore:
     def __init__(self, persist_directory: str, embedding_model,collection_name):
@@ -78,4 +80,5 @@ class ChromaVectorStore:
         if total == 0:
             print("⚠️ No documents found in the store.")
 
-
+    def split_documents(self, documents: Iterable[Document]) -> list[Document]:
+        """Split documents."""

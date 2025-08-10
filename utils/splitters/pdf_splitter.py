@@ -1,5 +1,6 @@
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
+
 class TextSplitterService:
   def __init__(self,chunk_size = 1000,chunk_overlap=200):
     self.splitter = RecursiveCharacterTextSplitter(
@@ -10,4 +11,4 @@ class TextSplitterService:
   
   def split(self,documents):
     return self.splitter.split_documents(documents)
-  
+

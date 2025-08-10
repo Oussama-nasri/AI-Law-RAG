@@ -2,6 +2,7 @@ from utils.loaders.pdf_loader import PDFLoaderService
 from utils.splitters.pdf_splitter import TextSplitterService
 from utils.embeddings.embedding_model import EmbeddingService
 from utils.vectorstore.chroma_store import ChromaVectorStore
+from utils.text_cleaner.text_cleaner import PDFTextCleaner
 import os
 
 class PDFProcessingPipeline:
@@ -29,19 +30,18 @@ class PDFProcessingPipeline:
 
     def run(self):
         print(f"Loading PDF: {self.pdf_path}")
-        documents = PDFLoaderService(self.pdf_path).load()
-        print(f"Loaded {len(documents)} pages")
+        documents = PDFLoaderService(self.pdf_path,"plumber",pages_to_skip=[4]).load()
 
+        documents = PDFTextCleaner().clean_document(documents)
         chunks = TextSplitterService().split(documents)
-        print(f"Split into {len(chunks)} chunks")
+
 
         embedding_model = EmbeddingService().get_model()
-        print("Embedding model initialized")
+
 
         vector_store = ChromaVectorStore(self.db_path, embedding_model,self.collection_name)
 
         vector_store.add_documents(chunks)
 
-        vector_store.show_store()
         return vector_store
 

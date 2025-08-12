@@ -1,8 +1,8 @@
-from utils.loaders.pdf_loader import PDFLoaderService
-from utils.splitters.pdf_splitter import TextSplitterService
-from utils.embeddings.embedding_model import EmbeddingService
-from utils.vectorstore.chroma_store import ChromaVectorStore
-from utils.text_cleaner.text_cleaner import PDFTextCleaner
+from retriever.loaders.pdf_loader import PDFLoaderService
+from retriever.splitters.pdf_splitter import TextSplitterService
+from retriever.embeddings.embedding_model import EmbeddingService
+from retriever.vectorstore.chroma_store import ChromaVectorStore
+from retriever.text_cleaner.text_cleaner import PDFTextCleaner
 import os
 
 class PDFProcessingPipeline:
@@ -34,8 +34,6 @@ class PDFProcessingPipeline:
 
         documents = PDFTextCleaner().clean_document(documents)
         chunks = TextSplitterService().split(documents)
-
-
         embedding_model = EmbeddingService().get_model()
 
 

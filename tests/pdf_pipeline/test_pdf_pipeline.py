@@ -1,6 +1,6 @@
 import unittest
-from utils.pdf_pipline import PDFProcessingPipeline
-from utils.vectorstore.chroma_store import ChromaVectorStore
+from retriever.pdf_pipline import PDFProcessingPipeline
+from retriever.vectorstore.chroma_store import ChromaVectorStore
 
 class TestPDFPipeline(unittest.TestCase):
     def test_pipeline(self):

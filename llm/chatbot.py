@@ -6,25 +6,16 @@ from langchain_core.prompts import (
     HumanMessagePromptTemplate
 )
 from langchain_groq import ChatGroq
-import os
-from dotenv import load_dotenv
+from utils.env_loader import EnvLoader
 
 
 
 class Chatbot:
-    @staticmethod
-    def load_api_key():
-        load_dotenv()
-        try:
-            api_key = os.getenv("GROQ_API_KEY")
-            return api_key
-        except KeyError as e:
-            raise RuntimeError(f"Failed to load GROQ API key: {e}")
     def __init__ (self,vector_store,system_prompt,llm_name):
         self.vector_store = vector_store
         self.system_prompt = system_prompt
         self.llm_name = llm_name
-        self.api_key = self.load_api_key()
+        self.api_key = EnvLoader.load_api_key()
         self.memory = ConversationBufferMemory(
             memory_key="chat_history",
             return_messages=True,

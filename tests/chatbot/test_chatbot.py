@@ -1,6 +1,6 @@
 import unittest
-from models.chatbot import Chatbot
-from utils.pdf_pipline import PDFProcessingPipeline
+from llm.chatbot import Chatbot
+from retriever.pdf_pipline import PDFProcessingPipeline
 import asyncio
 
 
@@ -40,7 +40,7 @@ class TestChatbot(unittest.TestCase):
         chatbot = Chatbot(vector_store=vector_store,system_prompt=system_prompt,llm_name=llm_name)
 
         query = "Why does the Decree-law's criminalisation of certain offences raise concerns about legal certainty and arbitrary application?"
-
+        #query = "Is it legal to have more than one wife?"
         response = asyncio.run(chatbot.get_response(query))
 
         print(response)

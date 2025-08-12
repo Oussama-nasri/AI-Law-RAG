@@ -1,5 +1,5 @@
 import unittest
-from utils.loaders.pdf_loader import PDFLoaderService
+from retriever.loaders.pdf_loader import PDFLoaderService
 
 class TestPDFLoader(unittest.TestCase):
   def test_load_pdf(self):
